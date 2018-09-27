@@ -9,7 +9,7 @@ namespace SmartMenuLibrary
 {
     public class SmartMenu
     {
-		private Dictionary<char, Action> menuActions;
+		private Dictionary<char, string> menuActions;
 		private string menu;
 
         public void LoadMenu(string path)
@@ -20,11 +20,10 @@ namespace SmartMenuLibrary
 		internal void getprintableStringAndActionDictionary(string line)
 		{
 			menu = "";
-			menuActions = new Dictionary<char, Action>();
+			menuActions = new Dictionary<char, string>();
 			//Create an array of the lines from the menu string
 			string[] menuLineArray = line.Split('\n');
 			getSmartMenuDescriptionAndExitAction(menuLineArray);
-
 			getMenuPointTextAndActions(menuLineArray);
 		}
 
@@ -35,7 +34,7 @@ namespace SmartMenuLibrary
 				$"{menuLineArray[0]}\n" +
 				$"{menuLineArray[1]}\n";
 			//Add the exit action to menuActions
-			menuActions.Add('0', () => Console.WriteLine("exit"));
+			menuActions.Add('0', "exit");
 		}
 
 		private void getMenuPointTextAndActions(string[] menuLineArray)
@@ -48,31 +47,30 @@ namespace SmartMenuLibrary
 				//Add action to menuActions
 				menuActions.Add(
 					Convert.ToChar(textAndMenuID[0].Split(' ')[1]),
-					() => Console.WriteLine("\nBindings.run(textAndMenuID[1])"));//waiting for Bindings to be implemented
+					textAndMenuID[1]);
 			}
 		}
 
 		public void Activate()
 		{
 			Console.Write(menu);
-			Action action = getValidUserAction();
-			//preform action
-			action();
+			string menuID = getValidMenuIDFromUser();
+			Console.WriteLine('\n' + menuID);
 			Console.ReadKey();
 		}
 
-		private Action getValidUserAction()
+		private string getValidMenuIDFromUser ()
 		{
-			Action action;
+			string menuID;
 			char userChoice = Console.ReadKey().KeyChar;
-			//Try to get action for the current user input otherwhise
-			while (!menuActions.TryGetValue(userChoice, out action))
+			//As long as the user fails to enter a key wich is in the dictionary try again
+			while (!menuActions.TryGetValue(userChoice, out menuID))
 			{
-				Console.WriteLine("Invalid menu action try again");
+				Console.WriteLine("\n321321Invalid menu action try again");
 				userChoice = Console.ReadKey().KeyChar;
 			}
 
-			return action;
+			return menuID;
 		}
 	}
 }

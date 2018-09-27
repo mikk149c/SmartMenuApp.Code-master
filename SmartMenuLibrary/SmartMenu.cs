@@ -14,9 +14,48 @@ namespace SmartMenuLibrary
 
         public void LoadMenu(string path)
         {
-			getprintableStringAndActionDictionary(
-				new StreamReader($"../../{path}").ReadToEnd());
+			string menuSpec = new StreamReader($"../../{path}").ReadToEnd();
+			getprintableStringAndActionDictionary(getLanguage(menuSpec).Trim());
         }
+
+		private string getLanguage(string menuSpec)
+		{
+			List<char> userInputList = new List<char>();
+			string[] langaugeArray = menuSpec.Split('|');
+
+			for (int i = 0; i < langaugeArray.Length; i++)
+			{
+				langaugeArray[i] = langaugeArray[i].Trim();
+				Console.WriteLine($"{i}:{langaugeArray[i].Split('\n')[0]}");
+				userInputList.Add(i.ToString()[0]);
+			}
+			int requstedLanguage = getIndexOfVaildCharInListFromUser(userInputList);
+			Console.Clear();
+			return langaugeArray[requstedLanguage].Substring(getFirstIndexOfCharInString('\n', langaugeArray[requstedLanguage])+1);
+		}
+
+		private int getIndexOfVaildCharInListFromUser(List<char> list)
+		{
+			char userInput = Console.ReadKey().KeyChar;
+			while (!list.Contains(userInput))
+			{
+				userInput = Console.ReadKey().KeyChar;
+			}
+			return list.IndexOf(userInput);
+		}
+
+		private int getFirstIndexOfCharInString(char ch, string str)
+		{
+			for (int i = 0; i < str.Length; i++)
+			{
+				if (str[i] == ch)
+				{
+					return i;
+				}
+			}
+			return 0;
+		}
+
 		internal void getprintableStringAndActionDictionary(string line)
 		{
 			menu = "";

@@ -1,0 +1,10 @@
+﻿Velkommen til Smartmenu
+
+For at benytte dette program, vælg din ønskede handling udfra nedstående nummerordning:
+
+1. Action 1
+2. Action 2
+3. Action 3
+4. Action 4
+5. Action 5
+0. Exit

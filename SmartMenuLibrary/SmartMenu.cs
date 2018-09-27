@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SmartMenuLibrary
 {
@@ -10,7 +11,11 @@ namespace SmartMenuLibrary
     {
         public void LoadMenu(string path)
         {
-            // Implement ...
+         StreamReader file = new StreamReader(@"c:..\..\" + path + "");
+           
+            Console.ReadLine();
+
+          
         }
         public void Activate()
         {

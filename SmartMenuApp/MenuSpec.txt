@@ -1,0 +1,6 @@
+﻿Smart menu
+Use described key to select option and press key 0 to exit
+Key: 1 to do this;DoThis
+Key: 2 to do that;DoThat
+Key: 3 to do someting;DoSomething
+Key: 4 to get the answher;GetTheAnswerToLifeTheUniverseAndEverything

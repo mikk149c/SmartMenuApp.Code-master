@@ -13,9 +13,12 @@ namespace SmartMenuLibrary
         {
          StreamReader file = new StreamReader(@"c:..\..\" + path + "");
            
-            Console.ReadLine();
+         string smartmenutekst = Console.ReadLine();
 
-          
+            string[] danskEngelsk = smartmenutekst.Split('/');
+         
+
+
         }
         public void Activate()
         {

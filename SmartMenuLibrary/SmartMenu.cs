@@ -66,7 +66,7 @@ namespace SmartMenuLibrary
 			//As long as the user fails to enter a key wich is in the dictionary try again
 			while (!menuActions.TryGetValue(userChoice, out menuID))
 			{
-				Console.WriteLine("\n321321Invalid menu action try again");
+				Console.WriteLine("\nInvalid menu action try again");
 				userChoice = Console.ReadKey().KeyChar;
 			}
 

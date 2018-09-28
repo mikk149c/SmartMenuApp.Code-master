@@ -12,15 +12,16 @@ namespace SmartMenuLibrary
     {
         private string[] DanskArray;
         private string[] EnglishArray;
+        
         public void LoadMenu(string path)
         {
          StreamReader Reader = new StreamReader(@"c:..\..\" + path + "");
            
          string smartmenutekst = Reader.ReadToEnd();
 
-         string[] DanskEngelsk = smartmenutekst.Split('/');
-            string[] DanskArray = DanskEngelsk[0].Split('\n');
-            string[] EnglishArray = DanskEngelsk[1].Split('\n');
+            string[] DanskEngelsk = smartmenutekst.Split('/');
+            DanskArray = DanskEngelsk[0].Split('\n');
+            EnglishArray = DanskEngelsk[1].Split('\n');
         }
 
        

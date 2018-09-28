@@ -12,7 +12,7 @@ namespace SmartMenuLibrary
     {
         private string[] DanskArray;
         private string[] EnglishArray;
-        private bool stillRunning = true;
+        private bool invalidInput = true;
 
         public void LoadMenu(string path)
         {
@@ -29,53 +29,51 @@ namespace SmartMenuLibrary
             // Implement ...
 
             Console.WriteLine("Tryk 1 for Dansk, Press 2 for english");
-            string DanskEngleskValg = Console.ReadLine();
-
-            while (stillRunning)
+            string DanskEngelskValg = Console.ReadLine();
+            while (invalidInput)
             {
-                switch (DanskEngleskValg.ToLower())
+                switch (DanskEngelskValg)
                 {
 
                     case "1":
                         foreach (string value in DanskArray)
                             Console.WriteLine(value);
-                            stillRunning = false;
+                        invalidInput = false;
                         break;
                     case "2":
                         foreach (string value in EnglishArray)
                             Console.WriteLine(value);
-                            stillRunning = false;
+                        invalidInput = false;
                         break;
                     default:
                         Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
                         break;
                 }
             }
-
-            while (stillRunning)
+            string MenuValg = Console.ReadLine();
+            while (invalidInput)
             {
-                string MenuValg = Console.ReadLine();
-                switch (MenuValg.ToLower())
+                switch (MenuValg)
                 {
                     case "0":
                         Environment.Exit(0);
-                        stillRunning = false;
+                        invalidInput = false;
                         break;
                     case "1":
                         Console.WriteLine("DoThis");
-                        stillRunning = false;
+                        invalidInput = false;
                         break;
                     case "2":
                         Console.WriteLine("DoThat");
-                        stillRunning = false;
+                        invalidInput = false;
                         break;
                     case "3":
                         Console.WriteLine("DoSomething");
-                        stillRunning = false;
+                        invalidInput = false;
                         break;
                     case "4":
                         Console.WriteLine("42");
-                        stillRunning = false;
+                        invalidInput = false;
                         break;
                     default:
                         Console.WriteLine("Invalid Choice");
@@ -83,7 +81,7 @@ namespace SmartMenuLibrary
                 }
             }
 
-
+            Console.ReadKey();
                
             
            

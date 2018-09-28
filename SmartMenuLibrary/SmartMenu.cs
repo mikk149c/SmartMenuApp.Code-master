@@ -38,7 +38,7 @@ namespace SmartMenuLibrary
                 }
             }
 
-            switch (Convert.ToInt32(menuChoice.KeyChar))
+            switch (menuChoice.ToString())
             {
                 case "1":
                     foreach (string value in danskMenu)

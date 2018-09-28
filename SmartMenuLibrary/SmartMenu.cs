@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using FunctionLibrary;
 
 namespace SmartMenuLibrary
 {
@@ -15,16 +16,16 @@ namespace SmartMenuLibrary
            
          string smartmenutekst = Reader.ReadToEnd();
 
-         string[] danskEngelsk = smartmenutekst.Split('/');
-            string[] DanskArray = danskEngelsk[0].Split('\n');
-            string[] EnglishArray = danskEngelsk[1].Split('\n');
+         string[] DanskEngelsk = smartmenutekst.Split('/');
+            string[] DanskArray = DanskEngelsk[0].Split('\n');
+            string[] EnglishArray = DanskEngelsk[1].Split('\n');
 
 
         }
 
 
-        string[] DanskArray = danskEngelsk[0].trim.Split('\n');
-        string[] EnglishArray = danskEngelsk[1].trim.Split('\n');
+        string[] DanskArray = DanskEngelsk[0].trim.Split('\n');
+        string[] EnglishArray = DanskEngelsk[1].trim.Split('\n');
 
 
         public void Activate()

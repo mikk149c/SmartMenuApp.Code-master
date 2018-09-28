@@ -3,57 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SmartMenuLibrary
 {
     public class SmartMenu
     {
-        string[] bothMenu;
-        string[] danskMenu;
-        string[] englishMenu;
+
+        string[] daEng;
+        string[] danskArray;
+        string[] englishArray;
         public void LoadMenu(string path)
         {
-            System.IO.StreamReader file =
-    new System.IO.StreamReader($"../../" + path + "");
-            bothMenu = file.ReadToEnd().Split('\n');
+            StreamReader file = new StreamReader($"../../" + path + "");
+
+            string smartMenu = file.ReadToEnd();
+
+            daEng = smartMenu.Split('/');
+            danskArray = daEng[0].Split('\n');
+            englishArray = daEng[1].Split('\n');
         }
+        
         public void Activate()
         {
-            Console.WriteLine("Vælg dit sprog // Choose your language!\n1. Dansk\n2. English");
-            ConsoleKeyInfo menuChoice = Console.ReadKey();
-            if (menuChoice.KeyChar == '1')
-            {
-                Console.Clear();
-                for (int i = 0; i < 6; i++)
-                {
-                    danskMenu[i] = bothMenu[i];
-                }
-            }
-            else if (menuChoice.KeyChar == '2')
-            {
-                Console.Clear();
-                for (int i = 7; i < 12; i++)
-                {
-                    englishMenu[i] = bothMenu[i];
-                }
-            }
-
-            switch (menuChoice.ToString())
+            // Implement ...
+            Console.WriteLine("Tryk 1 for Dansk\nPress 2 for english");
+            ConsoleKeyInfo DanskEngleskValg = Console.ReadKey();
+            Console.Clear();
+            switch ((DanskEngleskValg.KeyChar).ToString())
             {
                 case "1":
-                    foreach (string value in danskMenu)
+                    foreach (string value in danskArray)
                         Console.WriteLine(value);
                     break;
                 case "2":
-                    foreach (string value in englishMenu)
+                    foreach (string value in englishArray)
                         Console.WriteLine(value);
                     break;
                 default:
                     Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
                     break;
             }
-            string MenuValg = Console.ReadLine();
-            switch (MenuValg.ToLower())
+            ConsoleKeyInfo MenuValg = Console.ReadKey();
+            Console.Clear();
+            switch ((MenuValg.KeyChar).ToString())
             {
                 case "0":
                     //kode
@@ -73,7 +66,6 @@ namespace SmartMenuLibrary
                 case "default":
                     //kode
                     break;
-
             }
         }
     }

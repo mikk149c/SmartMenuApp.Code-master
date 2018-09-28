@@ -20,8 +20,8 @@ namespace SmartMenuLibrary
          string smartmenutekst = Reader.ReadToEnd();
 
             string[] DanskEngelsk = smartmenutekst.Split('/');
-            DanskArray = DanskEngelsk[0].Split('\n');
-            EnglishArray = DanskEngelsk[1].Split('\n');
+            DanskArray = DanskEngelsk[0].Trim().Split('\n');
+            EnglishArray = DanskEngelsk[1].Trim().Split('\n');
         }
 
        

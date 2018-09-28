@@ -16,10 +16,17 @@ namespace SmartMenuLibrary
          string smartmenutekst = Reader.ReadToEnd();
 
          string[] danskEngelsk = smartmenutekst.Split('/');
-         string[] DanskArray = danskEngelsk[0].Split('\n');
-         string[] EnglishArray = danskEngelsk[1].Split('\n');
+            string[] DanskArray = danskEngelsk[0].Split('\n');
+            string[] EnglishArray = danskEngelsk[1].Split('\n');
+
 
         }
+
+
+        string[] DanskArray = danskEngelsk[0].Split('\n');
+        string[] EnglishArray = danskEngelsk[1].Split('\n');
+
+
         public void Activate()
         {
             // Implement ...
@@ -34,11 +41,39 @@ namespace SmartMenuLibrary
                 case "2":
                     foreach (string value in EnglishArray)
                         Console.WriteLine(value);
-
                     break;
                 default:
                     Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
                     break;
             }
+            string MenuValg = Console.ReadLine();
+            switch (MenuValg.ToLower())
+            {
+                case "0":
+                    //kode
+                    break;
+                case "1":
+                    //kode
+                    break;
+                case "2":
+                    //kode
+                    break;
+                case "3":
+                    //kode
+                    break;
+                case "4":
+                    //kode
+                    break;
+                case "default":
+                    //kode
+                    break;
+
+
+
+
+
+
+            }
+        }
     }
 }

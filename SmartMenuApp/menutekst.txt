@@ -1,7 +1,5 @@
 ﻿Velkommen til Smartmenu
-
 For at benytte dette program, vælg din ønskede handling udfra nedstående nummerordning:
-
 Action  1
 Action  2
 Action  3
@@ -12,7 +10,6 @@ Exit	0
 /
 
 Welcome to Smartmenu
-
 to use the functions of this program, pick your desired function from the menu below:
 Action  1
 Action  2

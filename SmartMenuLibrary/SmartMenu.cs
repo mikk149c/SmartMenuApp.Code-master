@@ -23,8 +23,8 @@ namespace SmartMenuLibrary
         }
 
 
-        string[] DanskArray = danskEngelsk[0].Split('\n');
-        string[] EnglishArray = danskEngelsk[1].Split('\n');
+        string[] DanskArray = danskEngelsk[0].trim.Split('\n');
+        string[] EnglishArray = danskEngelsk[1].trim.Split('\n');
 
 
         public void Activate()
@@ -67,12 +67,6 @@ namespace SmartMenuLibrary
                 case "default":
                     //kode
                     break;
-
-
-
-
-
-
             }
         }
     }

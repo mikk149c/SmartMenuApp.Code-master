@@ -10,7 +10,8 @@ namespace SmartMenuLibrary
 {
     public class SmartMenu
     {
-
+        private string[] DanskArray;
+        private string[] EnglishArray;
         public void LoadMenu(string path)
         {
          StreamReader Reader = new StreamReader(@"c:..\..\" + path + "");
@@ -20,14 +21,13 @@ namespace SmartMenuLibrary
          string[] DanskEngelsk = smartmenutekst.Split('/');
             string[] DanskArray = DanskEngelsk[0].Split('\n');
             string[] EnglishArray = DanskEngelsk[1].Split('\n');
-
-
         }
 
-
+       
         public void Activate()
         {
             // Implement ...
+
             Console.WriteLine("Tryk 1 for Dansk, Press 2 for english");
             string DanskEngleskValg = Console.ReadLine();
             switch (DanskEngleskValg.ToLower())

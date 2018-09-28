@@ -61,7 +61,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="menutekst.txt" />
+    <Content Include="MenuSpec.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

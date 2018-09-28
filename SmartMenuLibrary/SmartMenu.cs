@@ -18,7 +18,7 @@ namespace SmartMenuLibrary
             StreamReader file = new StreamReader($"../../" + path + "");
 
             string smartMenu = file.ReadToEnd();
-
+      
             daEng = smartMenu.Split('/');
             danskArray = daEng[0].Split('\n');
             englishArray = daEng[1].Split('\n');
@@ -27,9 +27,9 @@ namespace SmartMenuLibrary
         public void Activate()
         {
             // Implement ...
-            Console.WriteLine("Tryk 1 for Dansk\nPress 2 for english");
-            bool isValid = true;
+            bool isValid;
             do {
+                Console.WriteLine("Tryk 1 for Dansk\nPress 2 for english");
                 ConsoleKeyInfo DanskEngleskValg = Console.ReadKey();
                 Console.Clear();
                 switch ((DanskEngleskValg.KeyChar).ToString())
@@ -37,29 +37,28 @@ namespace SmartMenuLibrary
                     case "1":
                         foreach (string value in danskArray)
                             Console.WriteLine(value);
+                        isValid = true;
                         break;
                     case "2":
                         foreach (string value in englishArray)
                             Console.WriteLine(value);
+                        isValid = true;
                         break;
                     default:
-                        Console.WriteLine("Dit input er forkert. Prøv igen. /// I don't understand that!");
+                        Console.WriteLine("Forkert input /// Wrong input\nTast enter for at prøve igen /// press enter to try again");
+                        isValid = false;
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                 }
-            } while
-
-
-
-
+            } while (isValid == false);
+            
             ConsoleKeyInfo MenuValg = Console.ReadKey();
                 Console.Clear();
             switch ((MenuValg.KeyChar).ToString())
             {
-                case "0":
-                    Console.WriteLine("hello");
-                    break;
                 case "1":
-                    //kode
+                    Console.WriteLine("DoThis");
                     break;
                 case "2":
                     //kode
@@ -68,6 +67,9 @@ namespace SmartMenuLibrary
                     //kode
                     break;
                 case "4":
+                    //kode
+                    break;
+                case "5":
                     //kode
                     break;
                 case "default":

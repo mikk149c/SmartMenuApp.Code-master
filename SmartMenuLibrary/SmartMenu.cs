@@ -15,40 +15,43 @@ namespace SmartMenuLibrary
         public void LoadMenu(string path)
         {
 			string menuSpec = new StreamReader($"../../{path}").ReadToEnd();
-			SmartMenu languageMenu = new SmartMenu();
-			getprintableStringAndActionDictionary(languageMenu.getLanguage(menuSpec));
+			generateMenugAndActionDictionary(getLanguage(menuSpec));
         }
 
-		public string getLanguage(string menuSpec)
+		private string getLanguage(string menuSpec)
 		{
 			Console.Clear();
-			menuActions = new Dictionary<char, string>();
-			string[] languages = menuSpec.Split('|');
-
+			generateLanguageMenuPointsAndActions(menuSpec);
 			Console.WriteLine("Chose language/ Vælg sprog");
-			for (int i = 0; i < languages.Length; i++)
-			{
-				string[] keyAndLanguages = languages[i].Split('§');
-				menu += $"{i}: {keyAndLanguages[0].Trim()}\n";
-				menuActions.Add(i.ToString()[0], keyAndLanguages[1].Trim());
-			}
 			Console.Write(menu);
 			string selectedLanguage = getValidMenuIDFromUser();
 			Console.Clear();
 			return selectedLanguage;
 		}
 
-		internal void getprintableStringAndActionDictionary(string line)
+		private void generateLanguageMenuPointsAndActions(string menuSpec)
+		{
+			menuActions = new Dictionary<char, string>();
+			string[] languages = menuSpec.Split('|');
+			for (int i = 0; i < languages.Length; i++)
+			{
+				string[] keyAndLanguages = languages[i].Split('§');
+				menu += $"{i}: {keyAndLanguages[0].Trim()}\n";
+				menuActions.Add(i.ToString()[0], keyAndLanguages[1].Trim());
+			}
+		}
+
+		internal void generateMenugAndActionDictionary(string line)
 		{
 			menu = "";
 			menuActions = new Dictionary<char, string>();
 			//Create an array of the lines from the menu string
 			string[] menuLineArray = line.Split('\n');
-			getSmartMenuDescriptionAndExitAction(menuLineArray);
-			getMenuPointTextAndActions(menuLineArray);
+			generateMenuDescriptionAndExitAction(menuLineArray);
+			generateMenuPointsAndActions(menuLineArray);
 		}
 
-		private void getSmartMenuDescriptionAndExitAction(string[] menuLineArray)
+		private void generateMenuDescriptionAndExitAction(string[] menuLineArray)
 		{
 			//Add the first two lines to menu string
 			menu =
@@ -58,7 +61,7 @@ namespace SmartMenuLibrary
 			menuActions.Add('0', "exit");
 		}
 
-		private void getMenuPointTextAndActions(string[] menuLineArray)
+		private void generateMenuPointsAndActions(string[] menuLineArray)
 		{
 			for (int i = 2; i < menuLineArray.Length; i++)
 			{

@@ -28,6 +28,7 @@ namespace SmartMenuLibrary
         {
             // Implement ...
             Console.WriteLine("Tryk 1 for Dansk\nPress 2 for english");
+
             ConsoleKeyInfo DanskEngleskValg = Console.ReadKey();
             Console.Clear();
             switch ((DanskEngleskValg.KeyChar).ToString())
@@ -41,15 +42,20 @@ namespace SmartMenuLibrary
                         Console.WriteLine(value);
                     break;
                 default:
-                    Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
+                    Console.WriteLine("Dit input er forkert. Prøv igen. /// I don't understand that!");
                     break;
             }
+
+
+
+
+
             ConsoleKeyInfo MenuValg = Console.ReadKey();
-            Console.Clear();
+                Console.Clear();
             switch ((MenuValg.KeyChar).ToString())
             {
                 case "0":
-                    //kode
+                    Console.WriteLine("hello");
                     break;
                 case "1":
                     //kode
@@ -67,6 +73,8 @@ namespace SmartMenuLibrary
                     //kode
                     break;
             }
+
+
         }
     }
 }

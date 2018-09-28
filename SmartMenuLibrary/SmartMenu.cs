@@ -12,7 +12,7 @@ namespace SmartMenuLibrary
         public void LoadMenu(string path)
         {
             System.IO.StreamReader file =
-    new System.IO.StreamReader(@"C:..\..\" + path + "");
+    new System.IO.StreamReader($"../../" + path + "");
             bothMenu = file.ReadToEnd().Split('\n');
         }
         public void Activate()

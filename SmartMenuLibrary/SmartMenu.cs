@@ -16,9 +16,11 @@ namespace SmartMenuLibrary
         {
             // Implement ...
             int caseSwitch = 1;
+            int caseSwitch = 2;
+            int caseSwitch = 3;
 
             switch (caseSwitch)
-             {
+            {
 
                 case 1:
                     Console.WriteLine("Do This");
@@ -28,7 +30,11 @@ namespace SmartMenuLibrary
                     break;
                 case 3:
                     Console.WriteLine("Do Something");
-}
+                    break;
+                default:
+                    Console.WrtieLine("The value is unknown");
+                    break;
+            }
         }
     }
 }

@@ -12,8 +12,7 @@ namespace SmartMenuLibrary
     {
         private string[] DanskArray;
         private string[] EnglishArray;
-        private bool invalidInput = true;
-
+  
         public void LoadMenu(string path)
         {
          StreamReader Reader = new StreamReader(@"c:..\..\" + path + "");
@@ -26,7 +25,9 @@ namespace SmartMenuLibrary
         }
         public void Activate()
         {
-            // Implement ...
+
+            bool invalidInput = true;
+            bool invalidInput2 = true;
 
             Console.WriteLine("Tryk 1 for Dansk, Press 2 for english");
             string DanskEngelskValg = Console.ReadLine();
@@ -47,36 +48,39 @@ namespace SmartMenuLibrary
                         break;
                     default:
                         Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
+                        DanskEngelskValg = Console.ReadLine();
                         break;
                 }
             }
+
             string MenuValg = Console.ReadLine();
-            while (invalidInput)
+            while (invalidInput2)
             {
                 switch (MenuValg)
                 {
                     case "0":
                         Environment.Exit(0);
-                        invalidInput = false;
+                        invalidInput2 = false;
                         break;
                     case "1":
                         Console.WriteLine("DoThis");
-                        invalidInput = false;
+                        invalidInput2 = false;
                         break;
                     case "2":
                         Console.WriteLine("DoThat");
-                        invalidInput = false;
+                        invalidInput2 = false;
                         break;
                     case "3":
                         Console.WriteLine("DoSomething");
-                        invalidInput = false;
+                        invalidInput2 = false;
                         break;
                     case "4":
                         Console.WriteLine("42");
-                        invalidInput = false;
+                        invalidInput2 = false;
                         break;
                     default:
                         Console.WriteLine("Invalid Choice");
+                        DanskEngelskValg = Console.ReadLine();
                         break;
                 }
             }

@@ -31,7 +31,7 @@ namespace SmartMenuLibrary
 			}
 			int requstedLanguage = getIndexOfVaildCharInListFromUser(userInputList);
 			Console.Clear();
-			return langaugeArray[requstedLanguage].Substring(getFirstIndexOfCharInString('\n', langaugeArray[requstedLanguage])+1);
+			return langaugeArray[requstedLanguage].Substring( getFirstIndexOfCharInString( '\n', langaugeArray[requstedLanguage] )+1 );
 		}
 
 		private int getIndexOfVaildCharInListFromUser(List<char> list)

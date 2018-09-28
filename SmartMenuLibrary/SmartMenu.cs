@@ -52,9 +52,29 @@ namespace SmartMenuLibrary
                     Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
                     break;
             }
+            string MenuValg = Console.ReadLine();
+            switch (MenuValg.ToLower())
+            {
+                case "0":
+                    //kode
+                    break;
+                case "1":
+                    //kode
+                    break;
+                case "2":
+                    //kode
+                    break;
+                case "3":
+                    //kode
+                    break;
+                case "4":
+                    //kode
+                    break;
+                case "default":
+                    //kode
+                    break;
 
-
-            Console.ReadLine();
+            }
         }
     }
 }

@@ -1,0 +1,10 @@
+﻿Beregningsalgoritmer
+Tryk menupunkt eller 0 for at afslutte
+Beregn rektanglets areal;rectanglearea
+Beregn polyline længde;polylinelength
+Indlæs talserie;listofnumbers
+Calculation Algorithms
+Press menu item or 0 to exit
+Calculate the rectangle area;rectanglearea
+Calculate polyline length;polylinelength
+Load speech series;listofnumbers

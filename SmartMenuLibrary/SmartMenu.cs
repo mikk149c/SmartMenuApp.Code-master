@@ -11,11 +11,11 @@ namespace SmartMenuLibrary
     {
         public void LoadMenu(string path)
         {
-         StreamReader file = new StreamReader(@"c:..\..\" + path + "");
+         StreamReader Reader = new StreamReader(@"c:..\..\" + path + "");
            
-         string smartmenutekst = Console.ReadLine();
+         string smartmenutekst = Reader.ReadToEnd();
 
-            string[] danskEngelsk = smartmenutekst.Split('/');
+         string[] danskEngelsk = smartmenutekst.Split('/');
          
 
 
@@ -23,6 +23,7 @@ namespace SmartMenuLibrary
         public void Activate()
         {
             // Implement ...
+            Console.WriteLine("Tryk 1 for Dansk, Press 2 for english");
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using FunctionLibrary;
 
 namespace SmartMenuLibrary
 {
@@ -58,10 +59,10 @@ namespace SmartMenuLibrary
             switch ((MenuValg.KeyChar).ToString())
             {
                 case "1":
-                    Console.WriteLine("DoThis");
+                    Functions.DoThis();
                     break;
                 case "2":
-                    //kode
+                    
                     break;
                 case "3":
                     //kode

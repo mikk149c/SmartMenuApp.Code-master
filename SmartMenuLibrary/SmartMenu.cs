@@ -18,8 +18,8 @@ namespace SmartMenuLibrary
         public void Activate()
         {
             Console.WriteLine("Vælg dit sprog // Choose your language!\n1. Dansk\n2. English");
-            string menuChoice = Console.ReadLine();
-            if (int.Parse(menuChoice) == 1)
+            ConsoleKeyInfo menuChoice = Console.ReadKey();
+            if (menuChoice.KeyChar == '1')
             {
                 Console.Clear();
                 for (int i = 0; i < 6; i++)
@@ -27,7 +27,7 @@ namespace SmartMenuLibrary
                     Console.WriteLine(bothMenu[i]);
                 }
             }
-            else if (int.Parse(menuChoice) == 2)
+            else if (menuChoice.KeyChar == '2')
             {
                 Console.Clear();
                 for (int i = 7; i < 12; i++)

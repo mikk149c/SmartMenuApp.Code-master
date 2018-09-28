@@ -24,6 +24,8 @@ namespace SmartMenuLibrary
 			Console.Clear();
 			menuActions = new Dictionary<char, string>();
 			string[] languages = menuSpec.Split('|');
+
+			Console.WriteLine("Chose language/ Vælg sprog");
 			for (int i = 0; i < languages.Length; i++)
 			{
 				string[] keyAndLanguages = languages[i].Split('§');

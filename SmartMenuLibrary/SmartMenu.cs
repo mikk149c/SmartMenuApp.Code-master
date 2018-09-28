@@ -28,24 +28,25 @@ namespace SmartMenuLibrary
         {
             // Implement ...
             Console.WriteLine("Tryk 1 for Dansk\nPress 2 for english");
-
-            ConsoleKeyInfo DanskEngleskValg = Console.ReadKey();
-            Console.Clear();
-            switch ((DanskEngleskValg.KeyChar).ToString())
-            {
-                case "1":
-                    foreach (string value in danskArray)
-                        Console.WriteLine(value);
-                    break;
-                case "2":
-                    foreach (string value in englishArray)
-                        Console.WriteLine(value);
-                    break;
-                default:
-                    Console.WriteLine("Dit input er forkert. Prøv igen. /// I don't understand that!");
-                    break;
-            }
-
+            bool isValid = true;
+            do {
+                ConsoleKeyInfo DanskEngleskValg = Console.ReadKey();
+                Console.Clear();
+                switch ((DanskEngleskValg.KeyChar).ToString())
+                {
+                    case "1":
+                        foreach (string value in danskArray)
+                            Console.WriteLine(value);
+                        break;
+                    case "2":
+                        foreach (string value in englishArray)
+                            Console.WriteLine(value);
+                        break;
+                    default:
+                        Console.WriteLine("Dit input er forkert. Prøv igen. /// I don't understand that!");
+                        break;
+                }
+            } while
 
 
 

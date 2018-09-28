@@ -15,45 +15,25 @@ namespace SmartMenuLibrary
         public void LoadMenu(string path)
         {
 			string menuSpec = new StreamReader($"../../{path}").ReadToEnd();
-			getprintableStringAndActionDictionary(getLanguage(menuSpec).Trim());
+			SmartMenu languageMenu = new SmartMenu();
+			getprintableStringAndActionDictionary(languageMenu.getLanguage(menuSpec));
         }
 
-		private string getLanguage(string menuSpec)
+		public string getLanguage(string menuSpec)
 		{
-			List<char> userInputList = new List<char>();
-			string[] langaugeArray = menuSpec.Split('|');
-
-			for (int i = 0; i < langaugeArray.Length; i++)
-			{
-				langaugeArray[i] = langaugeArray[i].Trim();
-				Console.WriteLine($"{i}:{langaugeArray[i].Split('\n')[0]}");
-				userInputList.Add(i.ToString()[0]);
-			}
-			int requstedLanguage = getIndexOfVaildCharInListFromUser(userInputList);
 			Console.Clear();
-			return langaugeArray[requstedLanguage].Substring( getFirstIndexOfCharInString( '\n', langaugeArray[requstedLanguage] )+1 );
-		}
-
-		private int getIndexOfVaildCharInListFromUser(List<char> list)
-		{
-			char userInput = Console.ReadKey().KeyChar;
-			while (!list.Contains(userInput))
+			menuActions = new Dictionary<char, string>();
+			string[] languages = menuSpec.Split('|');
+			for (int i = 0; i < languages.Length; i++)
 			{
-				userInput = Console.ReadKey().KeyChar;
+				string[] keyAndLanguages = languages[i].Split('§');
+				menu += $"{i}: {keyAndLanguages[0].Trim()}\n";
+				menuActions.Add(i.ToString()[0], keyAndLanguages[1].Trim());
 			}
-			return list.IndexOf(userInput);
-		}
-
-		private int getFirstIndexOfCharInString(char ch, string str)
-		{
-			for (int i = 0; i < str.Length; i++)
-			{
-				if (str[i] == ch)
-				{
-					return i;
-				}
-			}
-			return 0;
+			Console.Write(menu);
+			string selectedLanguage = getValidMenuIDFromUser();
+			Console.Clear();
+			return selectedLanguage;
 		}
 
 		internal void getprintableStringAndActionDictionary(string line)

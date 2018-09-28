@@ -9,6 +9,8 @@ namespace SmartMenuLibrary
     public class SmartMenu
     {
         string[] bothMenu;
+        string[] danskMenu;
+        string[] englishMenu;
         public void LoadMenu(string path)
         {
             System.IO.StreamReader file =
@@ -24,7 +26,7 @@ namespace SmartMenuLibrary
                 Console.Clear();
                 for (int i = 0; i < 6; i++)
                 {
-                    Console.WriteLine(bothMenu[i]);
+                    danskMenu[i] = bothMenu[i];
                 }
             }
             else if (menuChoice.KeyChar == '2')
@@ -32,9 +34,26 @@ namespace SmartMenuLibrary
                 Console.Clear();
                 for (int i = 7; i < 12; i++)
                 {
-                    Console.WriteLine(bothMenu[i]);
+                    englishMenu[i] = bothMenu[i];
                 }
             }
+
+            switch (Convert.ToInt32(menuChoice.KeyChar))
+            {
+                case "1":
+                    foreach (string value in danskMenu)
+                        Console.WriteLine(value);
+                    break;
+                case "2":
+                    foreach (string value in englishMenu)
+                        Console.WriteLine(value);
+                    break;
+                default:
+                    Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
+                    break;
+            }
+
+
             Console.ReadLine();
         }
     }

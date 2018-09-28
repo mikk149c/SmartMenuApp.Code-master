@@ -1,10 +1,12 @@
-﻿Beregningsalgoritmer
-Tryk menupunkt eller 0 for at afslutte
-Beregn rektanglets areal;rectanglearea
-Beregn polyline længde;polylinelength
-Indlæs talserie;listofnumbers
-Calculation Algorithms
-Press menu item or 0 to exit
-Calculate the rectangle area;rectanglearea
-Calculate polyline length;polylinelength
-Load speech series;listofnumbers
+﻿Smart menu
+Vælg en menu! (indtast menu-nummeret). Tryk på 0 for at lukke
+Tast: 1 for at gøre det her;DoThis
+Tast: 2 for at gøre det;DoThat
+Tast: 3 for at gøre noget;DoSomething
+Tast: 4 for at finde svaret;GetTheAnswerToLifeTheUniverseAndEverything
+Smart menu
+Use described key to select an option. Press key 0 to exit
+Press: 1 to do this;DoThis
+Press: 2 to do that;DoThat
+Press: 3 to do someting;DoSomething
+Press: 4 to get the answher;GetTheAnswerToLifeTheUniverseAndEverything|

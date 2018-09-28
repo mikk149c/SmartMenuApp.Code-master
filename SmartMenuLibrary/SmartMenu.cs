@@ -22,7 +22,7 @@ namespace SmartMenuLibrary
             if (int.Parse(menuChoice) == 1)
             {
                 Console.Clear();
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 6; i++)
                 {
                     Console.WriteLine(bothMenu[i]);
                 }
@@ -30,7 +30,7 @@ namespace SmartMenuLibrary
             else if (int.Parse(menuChoice) == 2)
             {
                 Console.Clear();
-                for (int i = 5; i < 10; i++)
+                for (int i = 7; i < 12; i++)
                 {
                     Console.WriteLine(bothMenu[i]);
                 }

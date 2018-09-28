@@ -12,7 +12,7 @@ namespace SmartMenuLibrary
     {
         private string[] DanskArray;
         private string[] EnglishArray;
-        private bool isValid = true;
+        private bool stillRunning = true;
 
         public void LoadMenu(string path)
         {
@@ -31,7 +31,7 @@ namespace SmartMenuLibrary
             Console.WriteLine("Tryk 1 for Dansk, Press 2 for english");
             string DanskEngleskValg = Console.ReadLine();
 
-            do
+            while (stillRunning)
             {
                 switch (DanskEngleskValg.ToLower())
                 {
@@ -39,45 +39,49 @@ namespace SmartMenuLibrary
                     case "1":
                         foreach (string value in DanskArray)
                             Console.WriteLine(value);
+                            stillRunning = false;
                         break;
                     case "2":
                         foreach (string value in EnglishArray)
                             Console.WriteLine(value);
+                            stillRunning = false;
                         break;
                     default:
-                        isValid = false;
                         Console.WriteLine("Undskyld, forstår ikke dit input /// I'm sorry, I don't understand that!");
                         break;
                 }
-            } while (!isValid);
+            }
 
-            do
+            while (stillRunning)
             {
-                isValid = true;
                 string MenuValg = Console.ReadLine();
                 switch (MenuValg.ToLower())
                 {
                     case "0":
                         Environment.Exit(0);
+                        stillRunning = false;
                         break;
                     case "1":
                         Console.WriteLine("DoThis");
+                        stillRunning = false;
                         break;
                     case "2":
                         Console.WriteLine("DoThat");
+                        stillRunning = false;
                         break;
                     case "3":
                         Console.WriteLine("DoSomething");
+                        stillRunning = false;
                         break;
                     case "4":
                         Console.WriteLine("42");
+                        stillRunning = false;
                         break;
-                    case "default":
-                        isValid = false;
+                    default:
                         Console.WriteLine("Invalid Choice");
                         break;
                 }
-            } while (!isValid);
+            }
 
 
                

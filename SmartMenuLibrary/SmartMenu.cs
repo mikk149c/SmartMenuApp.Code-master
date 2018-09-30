@@ -9,7 +9,7 @@ namespace SmartMenuLibrary
     public class SmartMenu
     {
 		private string currentLanguage;
-		private List<string> languages = new List<string>();
+		private Dictionary<char, string> languages = new Dictionary<char, string>();
 		private Dictionary<string, string> menuForLanguages = new Dictionary<string, string>();
 		private Dictionary<string, Dictionary<char, string>> menuActionForLanguage = new Dictionary<string, Dictionary<char, string>>();
 
@@ -20,7 +20,7 @@ namespace SmartMenuLibrary
         }
 
 		/// <summary>
-		/// Rasponsible for indetefying languages and loading them all
+		/// Rasponsible for identefying languages and loading them
 		/// </summary>
 		/// <param name="menuSpec"></param>
 		private void LoadLanguages(string menuSpec)
@@ -34,7 +34,7 @@ namespace SmartMenuLibrary
 				if (menuSpecLines[i].Contains('§'))
 				{
 					indexOfLanguages.Add(i);
-					languages.Add(menuSpecLines[i].Split('§')[0]);
+					languages.Add(indexOfLanguages.Count.ToString()[0], menuSpecLines[i].Split('§')[0]);
 				}
 			}
 
@@ -47,7 +47,7 @@ namespace SmartMenuLibrary
 					languageMenuSpec += $"{menuSpecLines[j]}\n";
 				}
 
-				LoadLanguage(languages[i], languageMenuSpec);
+				LoadLanguage(languages[(i+1).ToString()[0]], languageMenuSpec);
 			}
 		}
 
@@ -91,6 +91,7 @@ namespace SmartMenuLibrary
 		{
 			Dictionary<char, string> menuActionForLanguage = new Dictionary<char, string>();
 			string[] menuSpecLines = menuSpec.Split('\n');
+			menuActionForLanguage.Add('0', "exit");
 
 			//Finds all the lines that have a menu point on it
 			for (int i = 0; i < menuSpecLines.Length; i++)
@@ -107,16 +108,23 @@ namespace SmartMenuLibrary
 
 		public void Activate()
         {
-			string menuID;
+			string menuID = "";
 
-			if (currentLanguage == null)
+			while (menuID != "exit")
 			{
-				DisplayLanguageMenu();
-				GetLanguageFromUser();
+				if (currentLanguage == null)
+				{
+					DisplayLanguageMenu();
+					currentLanguage = GetValueInDictionaryFromUser(languages);
+				}
+				else
+				{
+					Display(menuForLanguages[currentLanguage]);
+					menuID = GetValueInDictionaryFromUser(menuActionForLanguage[currentLanguage]);
+					Console.Write($"\n{menuID}\n");
+					Console.ReadKey();
+				}
 			}
-
-			Display(menuForLanguages[currentLanguage]);
-			menuID = getMenuIDFromUser();
         }
 
 		/// <summary>
@@ -125,25 +133,29 @@ namespace SmartMenuLibrary
 		private void DisplayLanguageMenu()
 		{
 			string menu = "";
-			for (int i = 0; i < languages.Count; i++)
+			foreach (KeyValuePair<char, string> item in languages)
 			{
-				menu += ($"{i}:{languages[i]}\n");
+				menu += ($"{item.Key}:{item.Value}\n");
 			}
 			Display(menu);
 		}
 
 		/// <summary>
-		/// Resposible for getting one of the available languages from the user
+		/// Get a possible action in a dictionary from the user
 		/// </summary>
-		private void GetLanguageFromUser()
+		/// <param name="dictionary"></param>
+		/// <returns></returns>
+		private string GetValueInDictionaryFromUser(Dictionary<char, string> dictionary)
 		{
-			int userChoice;
-			do
+			string value;
+			char userChoice = Console.ReadKey().KeyChar;
+			//If the useres choice is not in the ditionary return null
+			if (!dictionary.TryGetValue(userChoice, out value))
 			{
-				userChoice = GetIntFromUser();
-			} while (languages.Count < userChoice);
+				return null;
+			}
 
-			currentLanguage = languages[userChoice];
+			return value;
 		}
 
 		private int GetIntFromUser()
@@ -158,25 +170,6 @@ namespace SmartMenuLibrary
 			}
 
 			return userInt;
-		}
-
-		/// <summary>
-		/// Resposnible for getting one of the menu actions available
-		/// in the current language form the user
-		/// </summary>
-		/// <returns></returns>
-		private string getMenuIDFromUser()
-		{
-			string menuID;
-			char userChoice = Console.ReadKey().KeyChar;
-			//As long as the user fails to enter a key wich is in the dictionary try again
-			while (!menuActionForLanguage[currentLanguage].TryGetValue(userChoice, out menuID))
-			{
-				Console.WriteLine("\nInvalid menu action try again");
-				userChoice = Console.ReadKey().KeyChar;
-			}
-
-			return menuID;
 		}
 
 		/// <summary>

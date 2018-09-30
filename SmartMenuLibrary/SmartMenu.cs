@@ -112,7 +112,7 @@ namespace SmartMenuLibrary
 
 			while (menuID != "exit")
 			{
-				if (currentLanguage == null)
+				if (!languages.ContainsValue(currentLanguage))
 				{
 					DisplayLanguageMenu();
 					currentLanguage = GetValueInDictionaryFromUser(languages);
@@ -123,8 +123,8 @@ namespace SmartMenuLibrary
 					if ( ( menuID = GetValueInDictionaryFromUser( menuActionForLanguages[ currentLanguage ] ) ) != null )
 					{
 						Console.Write($"\n{menuID}\n");
+						Console.ReadKey();
 					}
-					Console.ReadKey();
 				}
 			}
         }

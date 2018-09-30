@@ -15,24 +15,24 @@ namespace SmartMenuLibrary
         public void Activate()
         {
             // Implement ...
-            int caseSwitch = 1;
-            int caseSwitch = 2;
-            int caseSwitch = 3;
 
-            switch (caseSwitch)
+            int caseswitch = ??;
+            // indsæt et eller andet
+
+            switch (caseswitch)
             {
 
                 case 1:
-                    
+                    // noget her
                     break;
                 case 2:
-                    
+                    // same
                     break;
                 case 3:
-                    
+                    // same
                     break;
                 default:
-                    Console.WrtieLine("The value is unknown");
+                    // same
                     break;
             }
         }

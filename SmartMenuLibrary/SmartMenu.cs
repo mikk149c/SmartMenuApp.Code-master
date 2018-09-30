@@ -11,7 +11,7 @@ namespace SmartMenuLibrary
 		private string currentLanguage;
 		private Dictionary<char, string> languages = new Dictionary<char, string>();
 		private Dictionary<string, string> menuForLanguages = new Dictionary<string, string>();
-		private Dictionary<string, Dictionary<char, string>> menuActionForLanguage = new Dictionary<string, Dictionary<char, string>>();
+		private Dictionary<string, Dictionary<char, string>> menuActionForLanguages = new Dictionary<string, Dictionary<char, string>>();
 
         public void LoadMenu(string path)
         {
@@ -103,7 +103,7 @@ namespace SmartMenuLibrary
 				}
 			}
 
-			this.menuActionForLanguage.Add(language, menuActionForLanguage);
+			menuActionForLanguages.Add(language, menuActionForLanguage);
 		}
 
 		public void Activate()
@@ -120,7 +120,7 @@ namespace SmartMenuLibrary
 				else
 				{
 					Display(menuForLanguages[currentLanguage]);
-					menuID = GetValueInDictionaryFromUser(menuActionForLanguage[currentLanguage]);
+					menuID = GetValueInDictionaryFromUser(menuActionForLanguages[currentLanguage]);
 					Console.Write($"\n{menuID}\n");
 					Console.ReadKey();
 				}

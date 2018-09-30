@@ -23,13 +23,13 @@ namespace SmartMenuLibrary
             {
 
                 case 1:
-                    Console.WriteLine("Do This");
+                    
                     break;
                 case 2:
-                    Console.WriteLine("Do That");
+                    
                     break;
                 case 3:
-                    Console.WriteLine("Do Something");
+                    
                     break;
                 default:
                     Console.WrtieLine("The value is unknown");

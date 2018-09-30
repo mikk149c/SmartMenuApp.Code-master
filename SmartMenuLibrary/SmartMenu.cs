@@ -32,7 +32,7 @@ namespace SmartMenuLibrary
                     // same
                     break;
                 default:
-                    // same
+                    Console.WriteLine("The value is unknown");
                     break;
             }
         }

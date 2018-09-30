@@ -122,9 +122,8 @@ namespace SmartMenuLibrary
 					Display(menuForLanguages[currentLanguage]);
 					if ( ( menuID = GetValueInDictionaryFromUser( menuActionForLanguages[ currentLanguage ] ) ) != null )
 					{
-
+						Console.Write($"\n{menuID}\n");
 					}
-					Console.Write($"\n{menuID}\n");
 					Console.ReadKey();
 				}
 			}

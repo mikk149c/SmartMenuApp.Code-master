@@ -35,7 +35,7 @@ namespace SmartMenuLibrary
             {
                 switch (DanskEngelskValg)
                 {
-
+                    
                     case "1":
                         foreach (string value in DanskArray)
                             Console.WriteLine(value);

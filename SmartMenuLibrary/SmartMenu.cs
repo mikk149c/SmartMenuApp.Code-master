@@ -139,7 +139,7 @@ namespace SmartMenuLibrary
 			{
 				menu += ($"{item.Key}:{item.Value}\n");
 			}
-			Display(menu);
+			Display(menu.Trim());
 		}
 
 		/// <summary>
@@ -181,7 +181,16 @@ namespace SmartMenuLibrary
 		private void Display(string str)
 		{
 			Console.Clear();
-			Console.WriteLine(str);
+			string[] lines = str.Split('\n');
+			for (int i = 0; i < lines.Length; i++)
+			{
+				Console.WriteLine($"{ RepeatChar(' ', 50-lines[i].Length/2) }{lines[i]}");
+			}
+		}
+
+		private string RepeatChar(char ch, int i)
+		{
+			return new string(ch, i);
 		}
 	}
 }

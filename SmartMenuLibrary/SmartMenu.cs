@@ -108,6 +108,7 @@ namespace SmartMenuLibrary
 
 		public void Activate()
         {
+			Console.CursorVisible = false;
 			string menuID = "";
 
 			while (menuID != "exit")
@@ -122,7 +123,7 @@ namespace SmartMenuLibrary
 					Display(menuForLanguages[currentLanguage]);
 					if ( ( menuID = GetValueInDictionaryFromUser( menuActionForLanguages[ currentLanguage ] ) ) != null )
 					{
-						Console.Write($"\n{menuID}\n");
+						Display($"\n{menuID}\n");
 						Console.ReadKey();
 					}
 				}

@@ -1,0 +1,13 @@
+﻿==============Smart menu==============
+Vælg et nummer for at starte dit valg. Tryk på 0 for at lukke.
+Tast 1: For at gøre det her;DoThis
+Tast 2: For at gøre det;DoThat
+Tast 3: For at gøre noget;DoSomething
+Tast 4: For at finde svaret;GetTheAnswerToLifeTheUniverseAndEverything
+/
+==============Smart menu==============
+Use described key to select an option. Press key 0 to exit.
+Press 1: To do this;DoThis
+Press 2: To do that;DoThat
+Press 3: To do someting;DoSomething
+Press 4: To get the answher;GetTheAnswerToLifeTheUniverseAndEverything
